@@ -1,31 +1,35 @@
-/* ---------- Print-only rules: show only invoice preview ---------- */
+/* ---------- Print-only rules: hide everything except the invoice preview ---------- */
 @media print {
-  /* hide everything by default */
+  /* hide everything on the page by default */
   body * {
     visibility: hidden !important;
+    display: none !important;
   }
 
-  /* make preview visible and place it at the top-left */
+  /* show the preview container and its children */
   .preview-container,
   .preview-container * {
     visibility: visible !important;
+    display: block !important;
   }
 
-  /* ensure the preview fills the printed page nicely */
+  /* ensure preview fills the page */
   .preview-container {
     position: absolute !important;
-    left: 0 !important;
     top: 0 !important;
+    left: 0 !important;
     width: 100% !important;
-    box-shadow: none !important; /* optional: remove shadow for printing */
-    background: white !important;
+    height: auto !important;
     margin: 0 !important;
+    padding: 12mm !important; /* printable padding */
+    box-shadow: none !important;
+    background: #fff !important;
     border-radius: 0 !important;
-    padding: 8mm !important; /* add printable padding */
   }
 
-  /* optionally hide page header/footer or other elements marked no-print */
+  /* hide any element that has .no-print explicitly */
   .no-print {
     display: none !important;
+    visibility: hidden !important;
   }
 }
