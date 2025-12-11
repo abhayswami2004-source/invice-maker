@@ -33,3 +33,12 @@
     visibility: hidden !important;
   }
 }
+@media print {
+  /* invoice preview dikhna chahiye */
+  .invoice-preview {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+  }
+}
