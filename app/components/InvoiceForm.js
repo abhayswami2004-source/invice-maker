@@ -291,9 +291,4 @@ export default function InvoiceForm({
 }
 
 
-  /* hide explicit no-print elements if any */
-  .no-print {
-    display: none !important;
-    visibility: hidden !important;
-  }
-}
+
