@@ -289,54 +289,7 @@ export default function InvoiceForm({
     </div>
   );
 }
-/* ---------- Print rules for a neat single-page invoice ---------- */
-@page {
-  size: A4;
-  margin: 10mm; /* adjust margin if you want smaller/larger printable area */
-}
 
-@media print {
-  /* hide everything by default */
-  body * {
-    visibility: hidden !important;
-    display: none !important;
-  }
-
-  /* show only the invoice preview area */
-  .preview-container,
-  .preview-container * {
-    visibility: visible !important;
-    display: block !important;
-  }
-
-  /* make the preview occupy printable A4 width and center it */
-  .preview-container {
-    position: relative !important;
-    top: 0 !important;
-    left: 0 !important;
-    margin: 0 auto !important;
-    width: calc(210mm - 20mm) !important; /* A4 width minus left+right page margins */
-    max-width: 100% !important;
-    box-shadow: none !important;
-    background: #fff !important;
-    border-radius: 0 !important;
-    padding: 8mm 12mm !important; /* inner padding for print */
-    box-sizing: border-box !important;
-    color: #111 !important;
-    -webkit-print-color-adjust: exact !important;
-  }
-
-  /* tighten typography a bit for print so it fits nicely */
-  .preview-container .invoice-title { font-size: 22px !important; }
-  .preview-container .invoice-number,
-  .preview-container .invoice-meta { font-size: 12px !important; }
-  .preview-container .items-table th,
-  .preview-container .items-table td { font-size: 12px !important; }
-
-  /* avoid page breaks inside invoice sections */
-  .preview-container, .preview-container * {
-    page-break-inside: avoid !important;
-  }
 
   /* hide explicit no-print elements if any */
   .no-print {
