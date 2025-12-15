@@ -1,3 +1,5 @@
+import html2pdf from "html2pdf.js";
+
 export default function InvoiceForm({
   from,
   to,
@@ -12,9 +14,25 @@ export default function InvoiceForm({
   onItemChange,
   onAddItem,
   onRemoveItem,
-  onPrint,
 }) {
-  return (
+  const downloadPDF = () => {
+  const element = document.getElementById("invoice-pdf");
+  if (!element) {
+    alert("Invoice not found");
+    return;
+  }
+
+  const options = {
+    margin: 10,
+    filename: "invoice.pdf",
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+  };
+
+  html2pdf().set(options).from(element).save();
+};
+ return (
     <div>
       <div className="app-title">Simple Invoice Maker</div>
       <div className="app-subtitle">
@@ -278,13 +296,13 @@ export default function InvoiceForm({
 
       {/* Actions */}
       <div style={{ marginTop: 12, display: "flex", gap: 8 }}>
-        <button
-          type="button"
-          className="button button-primary"
-          onClick={onPrint}
-        >
-          🖨️ Print / Save as PDF
-        </button>
+       <button
+  type="button"
+  className="button button-primary"
+  onClick={downloadPDF}
+>
+  ⬇️ Download Invoice PDF
+</button>
       </div>
     </div>
   );
