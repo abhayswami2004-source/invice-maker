@@ -17,4 +17,7 @@
     "eslint": "latest",
     "eslint-config-next": "latest"
   }
+  "dependencies": {
+  "html2pdf.js": "^0.10.1"
+}
 }
