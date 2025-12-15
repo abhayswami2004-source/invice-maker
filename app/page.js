@@ -64,12 +64,6 @@ export default function HomePage() {
     setItems((prev) => prev.filter((_, i) => i !== index));
   };
 
-  const handlePrint = () => {
-    if (typeof window !== "undefined") {
-      window.print();
-    }
-  };
-
   return (
     <main className="main-container">
       <div className="app-shell">
@@ -87,7 +81,6 @@ export default function HomePage() {
           onItemChange={handleItemChange}
           onAddItem={handleAddItem}
           onRemoveItem={handleRemoveItem}
-          onPrint={handlePrint}
         />
 
         <InvoicePreview
