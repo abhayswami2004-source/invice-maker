@@ -21,7 +21,7 @@ export default function InvoicePreview({
   const formatMoney = (value) => `${currency} ${value.toFixed(2)}`;
 
   return (
-    <div className="preview-container">
+      <div id="invoice-pdf" div className="preview-container">
       {/* Header */}
       <div className="invoice-header">
         <div>
